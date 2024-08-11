@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOPSIS Web Service</title>
+</head>
+<body>
+    <h1>TOPSIS Web Service</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Upload CSV file:</label>
+        <input type="file" name="file" id="file" required><br><br>
+
+        <label for="weights">Enter Weights (comma separated):</label>
+        <input type="text" name="weights" id="weights" required><br><br>
+
+        <label for="impacts">Enter Impacts (+/- comma separated):</label>
+        <input type="text" name="impacts" id="impacts" required><br><br>
+
+        <label for="email">Enter your Email:</label>
+        <input type="email" name="email" id="email" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
